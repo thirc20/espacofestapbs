@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Festa PBS</title>
+
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/CSS/layout.css">
+    <link rel="stylesheet" href="/CSS/text.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="menu">
+            <div class="menu-toggle">&#9776;</div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="textSecundary">Home</a></li>
+                    <li><a href="/sobre" class="textSecundary">Sobre</a></li>
+                    <li><a href="/contato" class="textSecundary">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <section>
+        <h1 class="textTitle">Quem Somos</h1>
+        <p class="textSecundary">
+            What is Lorem Ipsum?
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </section>
+    <center>    
+        <div class="slider-container">
+            <div class="slide" id="slide1">
+                <img src="/IMG/transferir.png" alt="espaco de lazer em parauapebas Image 1" width="90%" style="border-radius: 8px;">
+            </div>
+            <div class="slide" id="slide2">
+                <img src="/IMG/transferir 2.jpg" alt="espaco de lazer em parauapebas Image 2" width="90%" style="border-radius: 8px;">
+            </div>
+            <div class="slide" id="slide3">
+                <img src="/IMG/transferir 3.jpg" alt="espaco de lazer em parauapebas Image 3" width="90%" style="border-radius: 8px;">
+            </div>
+            <div class="slide" id="slide4">
+                <img src="/IMG/transferir 4.jpg" alt="espaco de lazer em parauapebas Image 4" width="90%" style="border-radius: 8px;">
+            </div>
+        
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+    </center>
+
+    <footer>
+        <p class="textTerceary">&copy; 2023 Agente Marketing e Publicidade</p>
+    </footer>
+
+    <!-- Link JS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/JS/layout.js"></script>
+    <script src="/JS/slide-show.js"></script>
+</body>
+
+</html>
+
