@@ -1,23 +1,42 @@
 .slider-container {
-    width: 70%;
+    width: 100%;
     overflow: hidden;
     border-radius: 8px;
 }
 
 .slide {
+
     display: none;
     text-align: center;
     left: 0;
     top: 0;
     width: 100%;
-    opacity: 0%;
-    transition: opacity 1s ease-in-out;
     border-radius: 8px;
 
 }
 
+.next-slide{
+    animation-name: slide-next;
+    animation-duration: 600ms;
+}
+
+.prev-slide{
+    animation-name: slide-prev;
+    animation-duration: 600ms;
+}
+
+.slide-enter{
+    animation-name: slide-enter;
+    animation-duration: 0.5s;
+}
+
+.slide-exit{
+    animation-name: slide-exit;
+    animation-duration: 0.5s;
+}
+
 img {
-    max-width: 100px;
+    max-width: 800px;
     height: auto;
 }
 
@@ -26,13 +45,17 @@ img {
 }
 
 button {
+    width: 50px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
-    background: none;
+    background: #a9a9a9;
+    color: #097aff;
+    text-align: center;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .prev {
@@ -41,4 +64,84 @@ button {
 
 .next {
     right: 10px;
+}
+
+@media only screen and (max-width: 1180px) {
+    img {
+        max-width: 500px;
+    }
+
+    button{
+        
+    margin-top: 4%;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    img {
+        max-width: 400px;
+    }
+
+    button{
+        
+        margin-top: 4%;
+        }
+}
+
+@media only screen and (max-width: 597px) {
+    img {
+        max-width: 320px;
+    }
+
+    button{
+        width: 40px;
+        margin-top: 4%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    img {
+        max-width: 220px;
+    }
+
+    button{
+        
+        margin-top: 4%;
+        }
+}
+
+@keyframes slide-next {
+    from {
+        margin-left: 0
+    }
+    to{
+        margin-left: -2200px;
+    }
+}
+
+@keyframes slide-prev {
+    from {
+        margin-left: 0
+    }
+    to{
+        margin-left: 2200px;
+    }
+}
+
+@keyframes slide-enter {
+    from {
+        margin-left: 2200px
+    }
+    to{
+        margin-left: 0;
+    }
+}
+
+@keyframes slide-exit {
+    from {
+        margin-left: -2200px
+    }
+    to{
+        margin-left: 0;
+    }
 }
