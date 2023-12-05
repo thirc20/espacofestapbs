@@ -1,21 +1,12 @@
 .slider-container {
-    position: relative;
-    width: 100%;
+    width: 70%;
     overflow: hidden;
     border-radius: 8px;
-
-}
-
-.slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
 }
 
 .slide {
     display: none;
     text-align: center;
-    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -26,7 +17,7 @@
 }
 
 img {
-    max-width: 100%;
+    max-width: 100px;
     height: auto;
 }
 
@@ -35,13 +26,13 @@ img {
 }
 
 button {
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
+    margin-top: 1%;
 }
 
 .prev {
