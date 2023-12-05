@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/CSS/layout.css">
     <link rel="stylesheet" href="/CSS/text.css">
     <link rel="stylesheet" href="/CSS/slide-show.css">
+    <link rel="stylesheet" href="/CSS/calendar.css">
+    <link rel="stylesheet" href="/CSS/modal.css">
 </head>
 
 <body>
@@ -41,25 +43,52 @@
             Aldus PageMaker including versions of Lorem Ipsum.
         </p>
     </section>
-    <center>    
+    <center>
         <div class="slider-container">
             <div class="slide" id="slide1">
                 <img src="/IMG/transferir.png" alt="espaco de lazer em parauapebas Image 1" style="border-radius: 8px;">
             </div>
             <div class="slide" id="slide2">
-                <img src="/IMG/transferir 2.jpg" alt="espaco de lazer em parauapebas Image 2" style="border-radius: 8px;">
+                <img src="/IMG/transferir 2.jpg" alt="espaco de lazer em parauapebas Image 2"
+                    style="border-radius: 8px;">
             </div>
             <div class="slide" id="slide3">
-                <img src="/IMG/transferir 3.jpg" alt="espaco de lazer em parauapebas Image 3" style="border-radius: 8px;">
+                <img src="/IMG/transferir 3.jpg" alt="espaco de lazer em parauapebas Image 3"
+                    style="border-radius: 8px;">
             </div>
             <div class="slide" id="slide4">
-                <img src="/IMG/transferir 4.jpg" alt="espaco de lazer em parauapebas Image 4" style="border-radius: 8px;">
+                <img src="/IMG/transferir 4.jpg" alt="espaco de lazer em parauapebas Image 4"
+                    style="border-radius: 8px;">
             </div>
-        
-            <button class="prev" onclick="changeSlide(-1)"><center>❮</center></button>
-            <button class="next" onclick="changeSlide(1)"><center>❯</center></button>
+
+            <button class="prev" onclick="changeSlide(-1)">
+                <center>❮</center>
+            </button>
+            <button class="next" onclick="changeSlide(1)">
+                <center>❯</center>
+            </button>
         </div>
     </center>
+
+    <div class="calendar" id="calendar">
+        <button onclick="prevMonth()">Anterior</button>
+        <button onclick="nextMonth()">Próximo</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modal-text" class="textSecundary" style="color: #333;"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal btn-confirmar" onclick="confirmDate()">Confirmar</button>
+                <button class="btn-modal btn-cancelar" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p class="textTerceary">&copy; 2023 Agente Marketing e Publicidade</p>
@@ -69,7 +98,14 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/JS/layout.js"></script>
     <script src="/JS/slide-show.js"></script>
+    <script src="/JS/calendar.js"></script>
+    <!-- <script src="/JS/modal.js">
+        function digitar(event) {
+            var x = event.keyCode;         // Obtém o valor Unicode (decimal)
+            var y = String.fromCharCode(x);    // Converte o valor em um caractere
+            document.getElementById("letra").innerHTML = "Número: " + x + " = Caractere: " + y;
+        }
+    </script> -->
 </body>
 
 </html>
-
