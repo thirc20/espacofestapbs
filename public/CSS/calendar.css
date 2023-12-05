@@ -1,0 +1,71 @@
+
+.calendar {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ecf305;
+    color: #333;
+    padding: 10px;
+    font-size: 45px;
+}
+
+.header > button {
+    width: auto;
+    font-size: 15pt;
+    background-color: #fff0;
+}
+
+.weekDays{
+    background-color: #3498db;
+    color: #FFF;
+    display: grid;
+    grid-template-columns: 14.3% 0.01% 14.2% 0.01% 14.3% 0.01% 14.2% 0.01% 14.3% 0.01% 14.2% 0.01% 14.3% 0.01% 14.2% 0.01%;
+}
+
+.days {
+    background-color: #FFF;
+    height: 65vh;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.day:hover {
+    background-color: #eee;
+}
+
+.today {
+    background-color: #3498db;
+    color: #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+    .days{
+        height: 50vh;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .days{
+        height: 30vh;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-modal{
+        margin-top: 6%;
+    }
+
+    .header{
+        font-size: 25px;
+    }
+}
