@@ -2,9 +2,9 @@ require('dotenv/config');
 
 // Importar o módulo Express
 const express = require('express');
-const appRoutes = require('./api/app')
+const appRoutes = require('../api/app')
 const bodyParser = require('body-parser');
-const connectSQLITE = require('./db');
+const connectSQLITE = require('../db');
 
 // Inicializar o aplicativo Express
 const app = express();
