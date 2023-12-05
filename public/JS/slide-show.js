@@ -1,25 +1,122 @@
-let currentSlide = 1;
+let currentSlide;
 let num = 1
 
-function showSlide(n) {
-    const slides = document.getElementsByClassName('slide');
+function showslide(obj){
+    let slides = document.querySelectorAll('.slide')
+
+    if(obj.f == 1){
+        slides[0].classList.add('slide-enter')
+        slides[0].style.display = 'block'
+        
+        setTimeout(() => {
+            slides[0].classList.remove('slide-enter')
+        }, 950);
+    }
     
-    if (n > slides.length) {
-        currentSlide = 1;
-    } else if (n < 1) {
-        currentSlide = slides.length;
+    if(obj.f == 2){
+        
+        for (let i = 0; i < slides.length; i++) {
+            if(slides[i].style.display == 'block'){
+                if(i < 3){
+                    slides[i].classList.add('next-slide')
+                    
+                    setTimeout(() => {
+                        slides[i].style.display = 'none'
+                        slides[i].classList.remove('next-slide')
+                        
+                        slides[i + 1].classList.add('slide-enter')
+                        slides[i + 1].style.display = 'block'
+                        
+                        setTimeout(() => {
+                            slides[i + 1].classList.remove('slide-enter')
+                            
+                        }, 425);
+                    }, 425);
+                }else {
+                    slides[i].classList.add('next-slide')
+                    
+                    setTimeout(() => {
+                        debugger
+                        slides[i].style.display = 'none'
+                        slides[i].classList.remove('next-slide')
+                        
+                        slides[0].classList.add('slide-enter')
+                        slides[0].style.display = 'block'
+                        
+                        setTimeout(() => {
+                            slides[0].classList.remove('slide-enter')
+                            
+                            setTimeout(() => {
+                                slides[0].classList.remove('slide-enter')
+                            }, 425);
+                        }, 425);
+                    }, 425);
+                }
+            }           
+        }
+    }
+    
+    if(obj.f == 0){
+        debugger
+        
+        for (let i = 0; i < slides.length; i++) {
+            if(slides[i].style.display == 'block'){
+                if(i > 0){
+                    slides[i].classList.add('prev-slide')
+                    
+                    setTimeout(() => {
+                        slides[i].style.display = 'none'
+                        slides[i].classList.remove('prev-slide')
+                        
+                        slides[i - 1].classList.add('slide-exit')
+                        slides[i - 1].style.display = 'block'
+                        
+                        setTimeout(() => {
+                            slides[i - 1].classList.remove('slide-exit')
+                            
+                        }, 425);
+                    }, 425);
+                }else {
+                    slides[i].classList.add('prev-slide')
+                    
+                    setTimeout(() => {
+                        slides[i].style.display = 'none'
+                        slides[i].classList.remove('prev-slide')
+                        
+                        slides[slides.length - 1].classList.add('slide-exit')
+                        slides[slides.length - 1].style.display = 'block'
+                        
+                        setTimeout(() => {
+                            slides[slides.length - 1].classList.remove('slide-exit')
+                            
+                            setTimeout(() => {
+                                slides[slides.length - 1].classList.remove('slide-exit')
+                            }, 425);
+                        }, 425);
+                    }, 425);
+                }
+            }
+        }
     }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-    }
-
-    slides[currentSlide - 1].style.opacity = '100%';
-    slides[currentSlide - 1].style.display = 'block';
 }
 
 function changeSlide(n) {
-    showSlide(currentSlide += n);
+    const slides = document.getElementsByClassName('slide');
+    
+    if(n == -1){
+        const num = {
+            n: currentSlide += n,
+            f: 0
+        }
+        showslide(num);
+    }else{
+        const num = {
+            n: currentSlide += n,
+            f: 2
+        }
+        showslide(num);
+    }
 }
 
 function automaticSlide(){
@@ -41,4 +138,9 @@ setInterval(() => {
     automaticSlide()
 }, 3000);
 
-document.addEventListener('DOMContentLoaded', showSlide(currentSlide));
+const nume = {
+    n: currentSlide + 1,
+    f: 1
+}
+
+document.addEventListener('DOMContentLoaded', showslide(nume));
