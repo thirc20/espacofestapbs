@@ -2,7 +2,7 @@
   "name": "espacofestapbs",
   "version": "1.0.0",
   "description": "repositório do site de um espaço de festa aqui da cidade",
-  "main": "index.js",
+  "main": "server.js",
   "engines":{
     "node": "18.x"
   },
