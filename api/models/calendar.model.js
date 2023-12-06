@@ -1,23 +1,30 @@
-const Sequelize = require('sequelize');
-const database = require('../../db');
- 
-const user = database.define('users', {
+const { Sequelize } = require('sequelize')
+const database = require('../../db')
+
+const calendar = database.define('scheduling', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    name: {
+    day: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    email: {
+    month: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true
     },
-    password: {
+    year: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    flag: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    client: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -25,5 +32,5 @@ const user = database.define('users', {
         type: Sequelize.DATE,
     }
 })
- 
-module.exports = user;
+
+module.exports = calendar

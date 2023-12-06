@@ -36,7 +36,6 @@ function showslide(obj){
                     slides[i].classList.add('next-slide')
                     
                     setTimeout(() => {
-                        debugger
                         slides[i].style.display = 'none'
                         slides[i].classList.remove('next-slide')
                         
@@ -57,7 +56,6 @@ function showslide(obj){
     }
     
     if(obj.f == 0){
-        debugger
         
         for (let i = 0; i < slides.length; i++) {
             if(slides[i].style.display == 'block'){
