@@ -8,8 +8,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/netlify-lambda server.js",
-    "build": "./node_modules/.bin/netlify-lambda build server.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
