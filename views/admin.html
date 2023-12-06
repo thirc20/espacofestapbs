@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Festa PBS</title>
+
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/CSS/layout.css">
+    <link rel="stylesheet" href="/CSS/text.css">
+    <link rel="stylesheet" href="/CSS/slide-show.css">
+    <link rel="stylesheet" href="/CSS/calendar.css">
+    <link rel="stylesheet" href="/CSS/modal.css">
+</head>
+
+<body>
+
+    <div class="calendar" id="calendar">
+        <button onclick="prevMonth()">Anterior</button>
+        <button onclick="nextMonth()">Próximo</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modal-text" class="textSecundary" style="color: #333;"></p>
+                <input type="password" name="passwordConfirm" id="passwordConfirm">
+                <p class="atencao">Atenção! ao clicar em confirmar, você terá 24h para confirmar seu agendamento, caso contrário o ficará disponível novamente.</p>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal btn-confirmar" onclick="confirmPassword()">Confirmar</button>
+                <button class="btn-modal btn-cancelar" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="textTerceary">&copy; 2023 Agente Marketing e Publicidade</p>
+    </footer>
+
+    <!-- Link JS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/JS/layout.js"></script>
+    <script src="/JS/slide-show.js"></script>
+    <script src="/JS/calendar.js"></script>
+    <!-- <script src="/JS/modal.js">
+        function digitar(event) {
+            var x = event.keyCode;         // Obtém o valor Unicode (decimal)
+            var y = String.fromCharCode(x);    // Converte o valor em um caractere
+            document.getElementById("letra").innerHTML = "Número: " + x + " = Caractere: " + y;
+        }
+    </script> -->
+</body>
+
+</html>

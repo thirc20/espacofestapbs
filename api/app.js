@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const { findAllUsers, createUser } = require('./repositorys/user.repository');
+const { createNewScheduling, findOneScheduling, listAllScheduling, confirmScheduling } = require('./repositorys/calendar.repository');
 
 // Rota Home
 router.get('/', async (req, res) => {
@@ -16,38 +17,36 @@ router.get('/', async (req, res) => {
 
 });
 
-// Rota sobre
-router.get('/sobre', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', '../../views/sobre.html'));
+router.get('/admin', async (req, res) => {
+    
+    try {
+
+        res.sendFile(path.join(__dirname, 'views', '../../views/admin.html'));
+
+    } catch (error) {
+        console.error(error)
+    }
+
 });
 
-// Rota contato 
-router.get('/contato', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'contato.html'));
-});
-
-router.get('/listAllUsers', async (req, res) => {
-    let findAllUser = await findAllUsers()
-        console.log(findAllUser)
-    res.send(findAllUser)
+router.post('/createScheduling', async (req, res) => {
+    let createScheduling = await createNewScheduling(req.body)
+    return res.send(createScheduling)
 })
 
-router.get('/createUser', async (req, res) => {
-    let createNewUser = await createUser()
-        console.log(createNewUser)
-    res.send(createNewUser)
+router.get('/listAllScheduling', async (req, res) => {
+    let listAllSchedulings = await listAllScheduling()
+    res.send(listAllSchedulings)
 })
 
-router.get('/updateUser', async (req, res) => {
-    // let findAllUser = await createUser()
-    //     console.log(findAllUser)
-    // res.send(findAllUser)
+router.post('/confirmScheduling', async (req, res) => {
+    let schedulingConfirm = await confirmScheduling(req.body)
+    res.send(schedulingConfirm)
 })
 
-router.get('/deleteUser', async (req, res) => {
-    // let findAllUser = await createUser()
-    //     console.log(findAllUser)
-    // res.send(findAllUser)
+router.post('/listUsers', async (req, res) => {
+    let listUsers = await findAllUsers(req.body.pass)
+    return res.send(listUsers)
 })
 
 module.exports = router;

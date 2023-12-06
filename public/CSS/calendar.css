@@ -40,12 +40,22 @@
 }
 
 .day:hover {
-    background-color: #eee;
+    background-color: #ecf305;
+    color: #333;
 }
 
 .today {
     background-color: #3498db;
     color: #fff;
+}
+
+.dayRed{
+    background-color: rgb(139, 0, 0);
+    color: wheat;
+}
+.dayGreen{
+    background-color: rgb(0, 139, 0);
+    color: wheat;
 }
 
 @media only screen and (max-width: 1000px) {

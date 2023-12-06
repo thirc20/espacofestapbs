@@ -4,14 +4,13 @@ const user = require('../models/user.model');
 async function createUser(userData){
     
     let database = await sequelizedb.sync()
-    console.log(database)
 
     try {
         
         let data = {
-            name: "Thiago Reis",
-            email: "contatothiagoreis01@gmail.com",
-            password: "210057trC*"         
+            name: "Admin",
+            email: "agentemarketingepublicidade@gmail.com",
+            password: "Espaco@2023pbs"         
         }
         const createUser = await user.create(data)
         console.log(createUser)
@@ -25,15 +24,21 @@ async function createUser(userData){
 
 }
 
-async function findAllUsers(){
+async function findAllUsers(pass){
 
     let database = await sequelizedb.sync()
 
     try {
 
-        const allUsers = user.findAll()
+        const allUsers = await user.findOne({where: {password: pass}})
         
-        return allUsers
+        if(allUsers.password == pass){
+            return allUsers.confirm = 'confirm'
+           
+        }
+        else {
+            return "Usuário Incorreto"
+        }
 
     } catch (error) {
         console.error(error)
