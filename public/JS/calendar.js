@@ -82,16 +82,17 @@ function showAlert(day) {
             else {
                 modalText.textContent = `Você clicou no dia ${day}/${currentMonth + 1}/${currentYear}`
             }
-
+    
     if(daySelected.classList[1] == 'dayGreen' || daySelected.classList[1] == 'dayRed'){
         modalText.textContent = `O dia que você clicou já está agendado!`
         const modal = document.getElementById("modal");
         document.querySelector('.atencao').innerHTML = ``
         modal.style.display = "block";
         
-        if(window.location.href == 'http://localhost:4400/') document.querySelector('.btn-confirmar').style.display = 'none'
-        if(window.location.href == 'http://localhost:4400/admin') {
+        if(window.location.href.indexOf('/admin') < 0) document.querySelector('.btn-confirmar').style.display = 'none'
+        if(window.location.href.indexOf('/admin') > 0) {
             dayClick = day
+            console.log(dayClick)
         }
     }
 
