@@ -199,7 +199,7 @@ function confirmDate() {
             if (xhr.readyState == 4 && xhr.status == 201 || xhr.status == 200) {
                 console.log(JSON.parse(xhr.responseText));
                 findAllScheduling()
-                window.location.href = `https://wa.me/55${process.env.WHATSAPP}?text=Gostaria+de+confirmar+a+reserva+do+espa%C3%A7o+para+o+dia+${dayClick}%2F${currentMonth + 1}%2F${currentYear}`
+                window.location.href = `https://wa.me/5594991915237?text=Gostaria+de+confirmar+a+reserva+do+espa%C3%A7o+para+o+dia+${dayClick}%2F${currentMonth + 1}%2F${currentYear}`
             } else {
                 console.log(`Error: ${xhr.status}`);
             }
