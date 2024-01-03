@@ -17,7 +17,7 @@ function showslide(obj){
         
         for (let i = 0; i < slides.length; i++) {
             if(slides[i].style.display == 'block'){
-                if(i < 3){
+                if(i < slides.length - 1){
                     slides[i].classList.add('next-slide')
                     
                     setTimeout(() => {

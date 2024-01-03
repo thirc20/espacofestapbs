@@ -131,6 +131,34 @@ function confirmPassword(){
     xhr.send(`pass=${inputPassword.value}`);
 }
 
+function liberarDia(){
+    let client = "Espaco Festa"
+    let inputPassword = document.querySelector('#passwordConfirm')
+
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/freeDay", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onload = () => {
+            if (xhr.readyState == 4 && xhr.status == 201 || xhr.status == 200) {
+                console.log(JSON.parse(xhr.responseText));
+                inputPassword.value = ''
+                findAllScheduling()
+
+            } else {
+                console.log(`Error: ${xhr.status}`);
+            }
+        };
+        xhr.send(`day=${dayClick}&month=${currentMonth + 1}&year=${currentYear}&client=${client}`);
+    }
+    catch (error) {
+        console.error(error)
+    }
+
+    closeModal()
+}
+
 function schedulingDate() {
     let client = "Thiago Reis"
     

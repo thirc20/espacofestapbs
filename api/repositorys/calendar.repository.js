@@ -50,6 +50,19 @@ async function confirmScheduling(data){
     }
 }
 
+async function freeDay(data){
+
+    let database = await sequelizedb.sync()
+    
+    try{
+        console.log(data)
+        return await saveFreeDay(data)
+    }
+    catch (error) {
+        return createHttpError(error) 
+    }
+}
+
 async function saveConfirmScheduling(id){
     try{
         let data = await calendar.findOne({where: {
@@ -66,8 +79,25 @@ async function saveConfirmScheduling(id){
     }
 }
 
+async function saveFreeDay(id){
+    try{
+        let data = await calendar.findOne({where: {
+            day: id.day,
+            month: id.month,
+            year: id.year
+        }})
+
+        data.flag = ""
+        return data.save()
+    }
+    catch (error){
+        return createHttpError(error) 
+    }
+}
+
 module.exports = {
     listAllScheduling,
     createNewScheduling,
-    confirmScheduling
+    confirmScheduling,
+    freeDay
 }

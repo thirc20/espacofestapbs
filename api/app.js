@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const { findAllUsers, createUser } = require('./repositorys/user.repository');
-const { createNewScheduling, findOneScheduling, listAllScheduling, confirmScheduling } = require('./repositorys/calendar.repository');
+const { createNewScheduling, findOneScheduling, listAllScheduling, confirmScheduling, freeDay } = require('./repositorys/calendar.repository');
 
 // Rota Home
 router.get('/', async (req, res) => {
@@ -41,6 +41,11 @@ router.get('/listAllScheduling', async (req, res) => {
 
 router.post('/confirmScheduling', async (req, res) => {
     let schedulingConfirm = await confirmScheduling(req.body)
+    res.send(schedulingConfirm)
+})
+
+router.post('/freeDay', async (req, res) => {
+    let schedulingConfirm = await freeDay(req.body)
     res.send(schedulingConfirm)
 })
 
